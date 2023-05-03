@@ -1,14 +1,15 @@
 package apps.movieService.src.main.java.Entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import java.sql.Timestamp;
 
-@NoArgsConstructor
-@AllArgsConstructor
-@Data
+@RequiredArgsConstructor
+@Getter
+@Setter
+@EntityScan
+//@Table(name = "approval_task_configurations")
 public class MovieEntity {
     int id;
     String title;

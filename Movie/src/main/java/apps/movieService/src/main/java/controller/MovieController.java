@@ -6,6 +6,8 @@ import apps.movieService.src.main.java.response.MovieListResponse;
 import apps.movieService.src.main.java.response.MovieResponses;
 import apps.movieService.src.main.java.usesase.MovieInputBoundary;
 import apps.movieService.src.main.java.usesase.MovieListInputBoundary;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,9 +24,10 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
+@RequiredArgsConstructor(onConstructor_ = {@Autowired})
 public class MovieController {
-    private MovieInputBoundary useCase;
-    private MovieListInputBoundary listUseCase;
+    private final MovieInputBoundary useCase;
+    private final MovieListInputBoundary listUseCase;
     @RequestMapping(value = "/" + MovieConstant.URI_HEALTH_CHECKER,  method = RequestMethod.GET)
     public ResponseEntity<MovieResponse> healthCheck() {
         return new ResponseEntity(HttpStatus.OK);
