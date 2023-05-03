@@ -1,0 +1,41 @@
+info:
+  app:
+    name: ${spring.application.name}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info,health,prometheus
+server:
+  port: 9816
+  tomcat:
+    mbeanregistry:
+      enabled: true
+spring:
+  application:
+    name: MovieService
+  datasource:
+    name: sys
+    username: root
+    password: Oif412003
+    url: jdbc:mysql://127.0.0.1/test?autoReconnect=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Jakarta
+    hikari:
+      connection-test-query: SELECT 1;
+      connection-timeout: 30000
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      maximum-pool-size: 30
+      minimum-idle: 5
+      validation-timeout: 28000
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL57InnoDBDialect
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+      use-new-id-generator-mappings: true
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: false
