@@ -1,17 +1,15 @@
-package src.main.java.response;
+package apps.movieService.src.main.java.Entity;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.sql.Timestamp;
 
-@Getter
-@Setter
-@AllArgsConstructor
 @NoArgsConstructor
-public class MovieResponse {
+@AllArgsConstructor
+@Data
+public class MovieEntity {
     int id;
     String title;
     String description;
